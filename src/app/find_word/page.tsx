@@ -21,8 +21,7 @@ export default function Home() {
         count ++;
 
       }
-    }
-
+    } 
     setResult(count);
     // console.log(inputText)
   }
