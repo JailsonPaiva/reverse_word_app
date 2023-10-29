@@ -48,31 +48,54 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="h-screen flex flex-col gap-8 mt-[5rem] overflow-y-hidden">
+      <main className="h-screen flex flex-col items-center gap-8 mt-[5rem] overflow-y-hidden">
         <h1 className="text-center text-3xl">Finda a Letter in Word</h1>
 
-        <section className="flex flex-row gap-8 justify-center items-center">
+        <section className="flex flex-col gap-8 justify-center items-center w-full md:flex-row md:w-[100%] md:px-8">
 
-          <label htmlFor="text_entry" className="flex flex-col h-[10rem] w-[40%] ">Write a Text
+          <label
+            htmlFor="text_entry"
+            className="flex flex-col h-[10rem] w-[70%] md:w-[40%] ">Write a Text
 
-            <textarea name="text-entry" id="text-entry" className="h-[10rem] flex flex-col justify-center p-2 rounded text-black" value={inputText} onChange={(e) => setInputText(e.target.value)} />
+            <textarea
+              name="text-entry"
+              id="text-entry"
+              className="h-[10rem] flex flex-col justify-center p-2 rounded text-black"
+              value={inputText}
+              onChange={(e) =>
+              setInputText(e.target.value)} />
           </label>
 
-          <label htmlFor="letter_entry" className="flex flex-col h-[5rem]">Write a Letter
-            <input type="text" className="min-w-[15rem]  max-w-[5rem] h-[2.5rem] flex flex-col justify-center p-2 rounded text-black" onChange={(e) => setInputLetter(e.target.value)} onKeyUp={() => setResultMessage('')} value={inputLetter} />
+          <label
+            htmlFor="letter_entry"
+            className="flex flex-col h-[5rem]">Write a Letter
+            <input
+              type="text"
+              className="min-w-[15rem]  max-w-[5rem] h-[2.5rem] flex flex-col justify-center p-2 rounded text-black"
+              onChange={(e) => setInputLetter(e.target.value)}
+              onKeyUp={() => setResultMessage('')}
+              value={inputLetter} />
 
           </label>
 
-          <button className="bg-green-600 hover:bg-green-500 ease-in duration-200 h-[2.8rem] rounded  min-w-[20%] max-w-[10%]" onClick={() => findLetter()} >Search</button>
+          <button
+            className="bg-green-600 hover:bg-green-500 ease-in duration-200 h-[2.8rem] rounded w-[30%] md:max-w-[15%]"
+            onClick={() => findLetter()} >Search</button>
         </section>
 
-        <section className="flex flex-col gap-4 justify-center items-center mt-[5rem]">
+        <section className="flex flex-col gap-4 justify-center items-center mt-[5rem] w-[100%]">
           <h2>Search Result</h2>
 
-          <input type="text" className="min-w-[40%] max-w-[20%] h-[4rem] flex flex-col justify-center p-2 rounded" readOnly value={resultMensage} />
+          <input
+            type="text"
+            className="w-[70%] md:w-[40%] h-[4rem] flex flex-col justify-center p-2 rounded"
+            readOnly
+            value={resultMensage} />
 
 
-          <button className="bg-rose-600 hover:bg-rose-500 ease-in duration-200 h-[2.8rem] rounded  min-w-[20%] max-w-[10%]" onClick={() => clearInput()}>Clear</button>
+          <button
+            className="bg-rose-600 hover:bg-rose-500 ease-in duration-200 h-[2.8rem] rounded  w-[30%] md:max-w-[15%]"
+            onClick={() => clearInput()}>Clear</button>
 
 
         </section>

@@ -46,9 +46,15 @@ export default function Home() {
 
           <h2 className="text-center text-xl">otxet ues avercsE</h2>
 
-          <textarea name="text-entry" id="text-entry" className="min-w-[70%] max-w-[40%] h-[10rem] flex flex-col justify-center p-2" value={inputValue} onChange={handleInputChange} />
+          <textarea
+            name="text-entry"
+            id="text-entry"
+            className="min-w-[50%] max-w-[40%] h-[10rem] flex flex-col justify-center p-2"
+            value={inputValue}
+            onChange={handleInputChange} />
 
-          <button className="bg-green-600 hover:bg-green-500 ease-in duration-200 h-[3rem] rounded min-w-[40%] max-w-[10%]"
+          <button
+            className="bg-green-600 hover:bg-green-500 ease-in duration-200 h-[3rem] rounded min-w-[35%] max-w-[10%]"
             onClick={() => cahngeLetters()}
           >rizudarT</button>
 
@@ -58,9 +64,16 @@ export default function Home() {
           <h2 className="text-center text-xl">odatluseR</h2>
 
 
-          <textarea name="text-entry" id="text-entry" className="min-w-[70%] max-w-[40%] h-[10rem] flex flex-col justify-center p-2" value={newValue} readOnly></textarea>
+          <textarea
+            name="text-entry"
+            id="text-entry"
+            className="min-w-[50%] max-w-[40%] h-[10rem] flex flex-col justify-center p-2"
+            value={newValue} readOnly />
 
-          <button className="bg-rose-600 hover:bg-rose-500 ease-in duration-200 h-[3rem] rounded  min-w-[40%] max-w-[10%]" onClick={() => clearInput()}>rapmiL</button>
+          <button
+            className="bg-rose-600 hover:bg-rose-500 ease-in duration-200 h-[3rem] rounded  min-w-[35%] max-w-[10%]"
+            onClick={() =>
+            clearInput()}>rapmiL</button>
 
 
         </section>
