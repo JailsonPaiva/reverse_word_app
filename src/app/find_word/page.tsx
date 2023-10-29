@@ -5,31 +5,42 @@ import { useState } from "react";
 export default function Home() {
   const [inputPhrase, setInputPhrase] = useState('');
   const [inputWord, setInputWord] = useState('');
-  const [result, setResult] = useState(0);
+  const [resultMensage, setResultMessage] = useState('');
 
 
-  const findLetter = () => {
+  const findWord = () => {
 
     let count = 0;
 
-    for (let j = 0; j <= inputPhrase.length; j++) {
-      const x = inputPhrase.length - j;
+    const inputPhraseArray = inputPhrase.split(' ');
 
-      if (x !== inputPhrase.length && (inputWord === inputPhrase[x] || inputWord.toUpperCase() === inputPhrase[x] || inputWord.toLowerCase() === inputPhrase[x])) {
+    for (let j = 0; j <= inputPhraseArray.length; j++) {
+      const x = inputPhraseArray.length - j;
 
-        console.log(inputPhrase[x])
+      if (x !== inputPhraseArray.length && (inputWord === inputPhraseArray[x] || inputWord.toUpperCase() === inputPhraseArray[x] || inputWord.toLowerCase() === inputPhraseArray[x])) {
+        console.log(inputPhraseArray[x])
         count ++;
-
       }
     } 
-    setResult(count);
-    // console.log(inputText)
+    viewResult(count)
   }
+
+
+  const viewResult = (value: number) => {
+    if (value === 0 && inputWord) {
+      setResultMessage(`A palavra "${inputWord}" não foi encontrada.`)
+    } if (!inputWord) {
+      setResultMessage(`Por favor, insira uma palavra.`)
+    } if (value !== 0 && inputWord) {
+      setResultMessage(`A palavra "${inputWord}" foi encontrada ${value} vez(es).`)
+    }
+  }
+
 
   const clearInput = () => {
     setInputPhrase('');
     setInputWord('');
-    setResult(0);
+    setResultMessage('');
   }
 
 
@@ -53,16 +64,16 @@ export default function Home() {
 
           </label>
 
-          <button className="bg-green-600 hover:bg-green-500 ease-in duration-200 h-[2.8rem] rounded  min-w-[20%] max-w-[10%]" onClick={() => findLetter()}>Search</button>
+          <button className="bg-green-600 hover:bg-green-500 ease-in duration-200 h-[2.8rem] rounded  min-w-[20%] max-w-[10%]" onClick={() => findWord()}>Search</button>
         </section>
 
         <section className="flex flex-col gap-4 justify-center items-center mt-[5rem]">
           <h2>Search Result</h2>
 
-          <input type="text" className="min-w-[40%] max-w-[20%] h-[4rem] flex flex-col justify-center p-2 rounded" readOnly  value={result !== 0 ? `A letra "${inputWord}" foi encontrada ${result} vezes` : ''}/>
+          <input type="text" className="min-w-[40%] max-w-[20%] h-[4rem] flex flex-col justify-center p-2 rounded" readOnly  value={resultMensage}/>
 
 
-          <button className="bg-rose-600 hover:bg-rose-500 ease-in duration-200 h-[2.8rem] rounded  min-w-[20%] max-w-[10%]" onClick={() => findLetter()}>Clear</button>
+          <button className="bg-rose-600 hover:bg-rose-500 ease-in duration-200 h-[2.8rem] rounded  min-w-[20%] max-w-[10%]" onClick={() => clearInput()}>Clear</button>
 
 
         </section>

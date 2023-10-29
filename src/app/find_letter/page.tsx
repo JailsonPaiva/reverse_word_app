@@ -20,7 +20,7 @@ export default function Home() {
     }
     viewResult(count)
   }
-// console.log(result)
+  // console.log(result)
   const clearInput = () => {
     setInputText('');
     setInputLetter('');
@@ -32,18 +32,17 @@ export default function Home() {
   const viewResult = (value: number) => {
 
     if (value === 0 && inputLetter) {
-       setResultMessage(`A letra "${inputLetter}" não foi encontrada.`)
+      setResultMessage(`A letra "${inputLetter}" não foi encontrada.`)
       //  console.log('teste')
       //  console.log(result)
-    } if( !inputLetter) {
+    } if (!inputLetter) {
       setResultMessage(`Por favor, insira uma letra.`)
-    } if(value !== 0 && inputLetter) {
+    } if (value !== 0 && inputLetter) {
       setResultMessage(`A letra "${inputLetter}" foi encontrada ${value} vez(es).`)
       // console.log('teste2')
 
     }
   }
-
 
 
   return (
